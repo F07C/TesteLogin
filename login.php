@@ -1,7 +1,7 @@
 <?php
     $usuario = 'root';
-    $senha = '';
-    $database = 'productsoftware';
+    $senha = 'Fil@202810';
+    $database = 'biblioteca';
     $host =  'localhost';
 
     $mysqli = new mysqli($host, $usuario, $senha, $database);

@@ -1,5 +1,38 @@
 <?php
+include('login.php');
+
+
+if (isset($_POST['termo'])) {
+    // Realizar a pesquisa
+    $sql = "SELECT * FROM livros WHERE titulo LIKE '%{$_POST['termo']}%' OR autor LIKE '%{$_POST['termo']}%';";
+    $resultado = mysqli_query($mysqli, $sqlcode);
+  
+    if (mysqli_num_rows($resultado) > 0) {
+      // Livros encontrados
+      ?>
+  
+      <ul>
+        <?php while ($livro = mysqli_fetch_assoc($resultado)): ?>
+          <li>
+            <a href="livro.php?id=<?php echo $livro['id']; ?>">
+              <?php echo $livro['titulo']; ?>
+            </a>
+            <p>Por <?php echo $livro['autor']; ?></p>
+            <p>Publicado em <?php echo $livro['ano_publicacao']; ?></p>
+          </li>
+        <?php endwhile; ?>
+      </ul>
+  
+      <?php
+    } else {
+      // Nenhum livro encontrado
+      echo "Nenhum livro encontrado.";
+    }
+  }
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,6 +66,10 @@
           <div class="logo">
                <a href="index2.php"><img src="images/logo-livraria2.png" width="150px"></a>
           </div>
+          <form action="pesquisa.php" method="post">
+  <input type="text" name="termo" placeholder="Pesquisar livros">
+  <input type="submit" value="Pesquisar">
+</form>
           <nav >
               <ul id="MenuItems">
                   <li><a href="index2.php">Página Inicial</a></li>
