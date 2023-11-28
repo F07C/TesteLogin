@@ -67,7 +67,7 @@ if (isset($_POST['termo'])) {
                <a href="index2.php"><img src="images/logo-livraria2.png" width="150px"></a>
           </div>
           <form action="pesquisa.php" method="post">
-  <input type="text" name="termo" placeholder="Pesquisar livros">
+  <input type="text" name="termo" placeholder="Pesquisar livros" id="lipe">
   <input type="submit" value="Pesquisar">
 </form>
           <nav >
@@ -76,6 +76,8 @@ if (isset($_POST['termo'])) {
                   <li><a href="produtos.php">Catálogo</a></li>
                   <li><a href="contato.php">Contato</a></li>
                   <li><a href="index.php">Conta</a></li>
+                  <li><a href="categorias.php">Categorias</a></li>
+
               </ul>
           </nav>
 

@@ -2,11 +2,11 @@
 
 include('protect.php');
 
-?>
-<?php
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,18 +38,21 @@ include('protect.php');
              <a href="index.html"><img src="images/logo-livraria2.png" width="125px"></a>
             
         </div>
+        <form action="pesquisa.php" method="post" class="form-inline">
+  <input type="text" name="termo" placeholder="Pesquisar livros" id="search-item">
+  <input type="submit" value="Pesquisar">
+</form>
         <nav >
            
-                <form class="form-inline">
-                  <i class="fas fa-search"></i>
-                  <input type="text" name="" id="search-item" placeholder="Procurar itens" onkeyup="search()">
-                </form>
+                
               
             <ul id="MenuItems">
                 <li><a href="index2.php">Página Inicial</a></li>
-                <li><a href="produtos.php">Catálogo</a></li>
+                <li><a href="produtos.php">Acervo</a></li>
                 <li><a href="contato.php">Contato</a></li>
                 <li><a href="index.php">Conta</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+
                 
             </ul>
           
@@ -65,8 +68,12 @@ include('protect.php');
                 <div class="small-container single-product">
                     <div class="row">
                         <div class="col-2">
-                            <img src="images/usuario.png" width="70%" id="ProductImg">
-
+                            <?php
+                            $userimg = base64_encode($_SESSION['userimg']);
+                            echo "<img src='data:image/jpeg;base64,$userimg' alt='Imagem do usuário' width='250px' heigth='200px' >";
+                            ?>
+                        
+                      
                           <!--  <div class="smal-img-row">
                                 <div class="small-img-col">
                                     <img src="./images/gallery-1.jpg" width="100%" class="small-img">
@@ -83,8 +90,10 @@ include('protect.php');
                             </div> -->
                         </div>
                         <div class="col-2">
-                            <p>Bem vindo ao seu perfil <br> <br></p>
-                            <h2>Guilherme Falcão</h2>
+                            <?php
+                            echo "Bem-vindo, ". $_SESSION['username'] . "!";                                                     
+                            ?>
+                            
                             <h4></h4>
                           <!--  <select>
                                 <option>Select Size</option>

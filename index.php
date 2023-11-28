@@ -28,7 +28,12 @@ if (isset($_POST['email']) || isset($_POST['senha'])){
             }
 
             $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['username'] = $usuario['username'];
+            $_SESSION['userimg'] = $usuario['userimg'];
+            echo "Bem-vindo, " . $_SESSION['username'] . "!";
+
+            
+
 
             header("Location: painel.php");
 
@@ -39,6 +44,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])){
     }
 
 }
+
         
 ?>
 <!DOCTYPE html>
@@ -58,12 +64,16 @@ if (isset($_POST['email']) || isset($_POST['senha'])){
       <div class="logo">
            <a href="./index.html"><img src="./images/logo-livraria2.png" width="215 px"></a>
       </div>
+      <form action="pesquisa.php" method="post">
+  <input type="text" name="termo" placeholder="Pesquisar livros">
+  <input type="submit" value="Pesquisar">
+</form>
       <nav >
           <ul id="MenuItems">
               <li><a href="./index2.php">Página Inicial</a></li>
               <li><a href="./produtos.php">Catálogo</a></li>
-             
-              <li><a href="">Contato</a></li>
+              <li><a href="./categorias.php">Categorias</a></li>
+              <li><a href="contaro.p">Contato</a></li>
               <li><a href="./acco.html">Conta</a></li>
           </ul>
       </nav>

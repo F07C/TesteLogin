@@ -58,13 +58,18 @@
               <div class="logo">
                    <a href="./index2.php"><img src="./images/logo-livraria2.png" width="215 px"></a>
               </div>
+              <form action="pesquisa.php" method="post">
+  <input type="text" name="termo" placeholder="Pesquisar livros">
+  <input type="submit" value="Pesquisar">
+</form>
               <nav >
                   <ul id="MenuItems">
                       <li><a href="./index2.php">Página Inicial</a></li>
-                      <li><a href="./produtos.php">Catálogo</a></li>
-                     
+                      <li><a href="./produtos.php">Acervo</a></li>                    
                       <li><a href="contato.php">Contato</a></li>
                       <li><a href="./index.php">Conta</a></li>
+                      <li><a href="categorias.php">Categorias</a></li>
+
                   </ul>
               </nav>
     

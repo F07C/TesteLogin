@@ -429,6 +429,10 @@ form.form_w3layouts {
         width: 33px;
         height: 40px;
     }
+    .row{
+        font-weight: bold
+        
+    }
     .banner-text p:before {
         left: 29.4%;
     }

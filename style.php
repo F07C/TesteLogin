@@ -313,14 +313,45 @@ select:focus{
     color: #fff;
 }
 
+.cogido {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+ }
 
+ .categoria {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    text-align: center;
+ }
+
+ .titulo {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    
+ }
+
+ .percentagem {
+    font-size: 1.5rem;
+    font-weight: bold;
+ }
+ .categoria img {
+  display: block;
+  margin: 0 auto;
+}
 /*------ single product details --------*/
 .single-product{
     margin-top: 80px;
 }
 .single-product .col-2 img{
     padding: 0;
+    
 }
+.single-product img{
+        border-radius: 10px;
+        padding-left: 300px;
+    }
 .single-product .col-2{
     padding: 20px;
 }
@@ -427,6 +458,7 @@ th:last-child{
     margin: auto;
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
     overflow: hidden;
+    border-radius: 10px;
 }
 .form-container span{
      font-weight: bold;
@@ -445,13 +477,16 @@ th:last-child{
     position: absolute;
     top: 130px;
     transition: transform 1s;
+
 }
 form input{
     width: 100%;
     height: 30px;
     margin: 10px 0;
     padding: 0 10px;
+    border-radius: 5px;
 }
+
 form .btn{
     width: 100%;
     border: none;
@@ -503,6 +538,7 @@ form a{
     }
     .single-product .col-2{
         padding: 20px 0;
+        border-radius: 10px;
     }
     .single-product h1{
         font-size: 26px;

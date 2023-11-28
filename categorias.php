@@ -1,3 +1,17 @@
+<?php
+include('login.php');
+
+?>
+
+
+
+
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,7 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de livros</title>
+    <title>Catálogo</title>
 
     <!---stylesheet-->
     <link rel="stylesheet" href="./style.php">
@@ -26,103 +40,67 @@
 
     <div class="navbar">
           <div class="logo">
-               <a href="./index2.php"><img src="./images/logo-livraria2.png" width="125 px"></a>
+               <a href="./index.html"><img src="./images/logo-livraria2.png" width="125 px"></a>
           </div>
           <form action="pesquisa.php" method="post">
   <input type="text" name="termo" placeholder="Pesquisar livros">
   <input type="submit" value="Pesquisar">
 </form>
           <nav >
-            
+          
               <ul id="MenuItems">
-                  <li><a href="./index.php">Pagina Inicial</a></li>
-                  <li><a href="./products.php">Acervo</a></li>
-                  <li><a href="contato.php">Contato</a></li>
-                  <li><a href="./account.php">Conta</a></li>
-                  <li><a href="categorias.php">Categorias</a></li>
-
+                  <li><a href="./index.html">Pagina Inicial</a></li>
+                  <li><a href="./produtos.html">Catálogo</a></li>
+                  <li><a href="./contato.html">Contato</a></li>
+                  <li><a href="./account.html">Conta</a></li>
               </ul>
           </nav>
 
-           <a href="./cart.php"><img src="./images/cart.png" width="30px" height="30px"></a>
+          
           <img src="./images/menu.png" class="menu-icon" onclick="menutoggle()">
     </div> 
   </div>         
  
                 <div class="small-container">
-                <?php
-// produtos.php
-
-// Verifica se a categoria foi passada como parâmetro
-$conn = new mysqli("localhost", "root", "Fil@202810", "biblioteca");
-
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
-
-// Função para buscar todos os livros de uma categoria
-function buscarLivrosPorCategoria($conn, $categoria) {
-    $livrosEncontrados = [];
-
-    // Consulta SQL para buscar livros por categoria
-    $sql = "SELECT * FROM livros WHERE categoria = ?";
-
-    // Prepara a consulta
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $categoria);
-    
-    // Executa a consulta
-    $stmt->execute();
-
-    // Obtém o resultado
-    $result = $stmt->get_result();
-
-    // Transforma o resultado em um array associativo
-    while ($livro = $result->fetch_assoc()) {
-        $livrosEncontrados[] = $livro;
-    }
-
-    // Fecha a consulta
-    $stmt->close();
-
-    return $livrosEncontrados;
-}
-
-// Verifica se a categoria foi passada como parâmetro
-
-// ...
-
-// Verifica se a categoria foi passada como parâmetro
-if (isset($_GET['categoria'])) {
-    $categoriaDesejada = $_GET['categoria'];
-
-    // Chamando a função buscarLivrosPorCategoria com a categoria desejada
-    $livrosDaCategoria = buscarLivrosPorCategoria($conn, $categoriaDesejada);
-
-    // Exibindo todos os livros da categoria encontrados
-    echo '<div class="row">';
-    foreach ($livrosDaCategoria as $livro) {
-        echo '<div class="col-4">';
-        echo "<img src='data:image/jpeg;base64,".base64_encode($livro['imagem'])."' alt='Imagem do Livro' class='img-fluid'>";
-        echo "<p><strong>Titulo</strong>: {$livro['titulo']}</p>";
-        echo "<p><strong>Categoria</strong>: {$livro['categoria']}</p>";
-        echo '</div>';
-    }
-    echo '</div>';
-} else {
-    echo "Nenhuma categoria selecionada.";
-}
-// ...
-?>
+                        <br> <br> <br> <br>
                     
 
-                    
-
-                    
-
-                    
-
+                    <div class="cogido">
+                        <div class="categoria">
+                           <div class="titulo">Fantasia</div>
+                           <a href="produtos.php?categoria=Fantasia">
+                            <img src="/TESTELOGIN/images/fantasia.png" width="100px">
+                           </a>                       
+                            
+                         </div>
+                      <div class="categoria">
+                        <div class="titulo"><h4>Ficção científica</h4></div>
+                        <a href="produtos.php?categoria=FicçãoCientífica">
+                         <img src="/TESTELOGIN/images/ficcao.png" width="100px">
+                        </a>
+                      </div>
+                      <div class="categoria">
+                        <div class="titulo">Ação e aventura</div>
+                         <a href="produtos.php?categoria=AçãoeAventura">
+                         <img src="/TESTELOGIN/images/acao.png" width="100px">
+                        </a>
+                      </div>
+                      <div class="categoria">
+                        <div class="titulo">Suspense</div>
+                        <a href="produtos.php?categoria=Suspense">
+                         <img src="/TESTELOGIN/images/suspense.png" width="100px">
+                         </a>
+                      </div>
+                      <div class="categoria">
+                        <div class="titulo">Biografia</div>
+                        <a href="produtos.php?categoria=Biografia">
+                         <img src="/TESTELOGIN/images/bio.png" width="100px">
+                         </a>
+                      </div>
+                     
+                     
+                     </div>
+                        <br> <br> <br> <br> <br><br>
 
 
 
@@ -142,7 +120,7 @@ if (isset($_GET['categoria'])) {
             </div>
             <div class="footer-col-2">
                 <img src="images/logo-livraria2.png">
-                <p>Impacta -  o conhecimento é livre: A leitura é a chave para o conhecimento, a transformação e um futuro melhor.</p>
+                <p>Livraria do Povo -  o conhecimento é livre: A leitura é a chave para o conhecimento, a transformação e um futuro melhor.</p>
             </div>
             <div class="footer-col-3">
                 <h3>Menu</h3>
